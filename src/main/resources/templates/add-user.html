@@ -2,31 +2,40 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="ISO-8859-1">
-    <title>User Management System</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<meta charset="ISO-8859-1">
+	<title>User Management System</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 </head>
 
-<body>
-    <div class="container">
-        <h1>Add User</h1>
-        <hr>
-     
-        <form action="#" th:action="@{/adduser}" th:object="${user}" method="POST">
-           <input type="text" th:field="*{name}" placeholder="User Name" class="form-control mb-4 col-4">
-           <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-                     
-           <input type="text" th:field="*{email}" placeholder="User Email" class="form-control mb-4 col-4">
-           <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
-             
-              <hr>
-            <input type="submit" value="Add User">
-        </form>
+<body class="bg-blue-300">
+	<div class="container mx-auto flex flex-col my-20">
+		<div class="text-center mb-4 w-80 mx-auto">
+			<h1 class="rounded-full bg-blue-100 py-4 text-violet-600 text-3xl font-bold ring-4 ring-violet-600">Add User
+			</h1>
+		</div>
 
-        <hr>
+		<form action="#" th:action="@{/adduser}" th:object="${user}" method="POST" class="my-20 w-500 mx-auto box-border p-10 ring-2 ring-violet-600 bg-blue-100">
 
-        <a th:href="@{/}"> Back to Users List</a>
-    </div>
+			<input type="text" th:field="*{name}" placeholder="User Name"
+				class="border border-black rounded-md py-2 px-4 focus:outline-none focus:border-violet-600">
+
+
+			<input type="text" th:field="*{email}" placeholder="User Email"
+				class="mr-40 border border-black rounded-md py-2 px-4 focus:outline-none focus:border-violet-600">
+
+
+			<button class="text-white font-bold py-2 px-20 rounded ease-in-out delay-150 bg-violet-600
+								hover:-translate-y-1 hover:scale-110 hover:duration-300"><input type="submit"
+					value="Add User"></button>
+		</form>
+
+		<div class="text-center mb-4 w-80 mx-auto">
+			<button class="text-white font-bold py-2 px-20 rounded-full ease-in-out delay-150 bg-violet-600
+								hover:-translate-y-1 hover:scale-110 hover:duration-300"><a th:href="@{/}"> Back to Users
+					List</a></button>
+		</div>
+	</div>
 </body>
 
 </html>
